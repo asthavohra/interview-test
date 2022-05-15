@@ -6,11 +6,13 @@ import Square from '../Square';
 /**
  * A board for the game of tic-tac-toe.  A 3x3 square.
  */
-const Board = ({onClick, squares}) => {
+const Board = (props) => {
     const renderSquare = (i) => (
         <Square
-            value={squares[i]}
-            onClick={() => onClick(i)}
+            isWinningPosition={props.winningPositions.includes(i)}
+            value={props.squares[i]}
+            onClick={() => props.onClick(i)}
+            id={i}
         />
     );
 

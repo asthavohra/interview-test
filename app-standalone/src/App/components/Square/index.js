@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 /**
  * A square in the game of tic tac toe.   Can be clicked or the square can contain a value.
  */
-const Square = ({onClick, value}) => (
-    <button className="square" onClick={onClick}>
+const Square = (props) => (
+    <button className={"square " + (props.isWinningPosition ? "square-winning" : "")} onClick={onClick}>
         {value}
     </button>
 );

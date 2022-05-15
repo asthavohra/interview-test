@@ -8,7 +8,8 @@ const Game = () => {
     const [gameHistory, setGameHistory] = useState([{ squares: Array(9).fill(null) }]); // Start of game
     const [stepNumber, setStepNumber] = useState(0);
     const [xIsNext, setXisNext] = useState(true);
-
+    let winningPositions = [];
+  
     const calculateWinner = (squares) => {
         const lines = [
             [0, 1, 2],
@@ -24,6 +25,7 @@ const Game = () => {
         for (let i = 0; i < lines.length; i++) {
             const [a, b, c] = lines[i];
             if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+                winningPositions.push(a, b, c);
                 return squares[a];
             }
         }
@@ -77,6 +79,7 @@ const Game = () => {
         <div className="game">
             <div className="game-board">
                 <Board
+                    winningPositions={winningPositions}
                     squares={current.squares}
                     onClick={i => handleClick(i)}
                 />
