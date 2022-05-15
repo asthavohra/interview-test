@@ -75,7 +75,7 @@ const Game = () => {
         status = "Next player: " + (xIsNext ? "X" : "O");
     }
 
-    return (
+  return (
         <div className="game">
             <div className="game-board">
                 <Board
@@ -88,7 +88,7 @@ const Game = () => {
                 <div>{status}</div>
                 <ol>{moves}</ol>
             </div>
-        </div>
+      </div>
     );
 };
 
